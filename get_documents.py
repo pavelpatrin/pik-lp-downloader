@@ -19,7 +19,7 @@ with open('%s/documents.json' % data_root, 'wb') as fh:
     fh.write(response.content)
 
 urls = [
-    doc.get('url')
+    doc['url']
     for project in response.json().get('projects', [])
     for bulk in project.get('bulks', [])
     for doc in bulk.get('docs', [])
